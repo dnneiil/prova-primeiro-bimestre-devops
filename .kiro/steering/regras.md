@@ -1,0 +1,6 @@
+- Projeto: API de Reservas (Node.js/Express, PostgreSQL). Campos: id, cliente, data, status.
+- AWS Academy Learner Lab, região us-east-1.
+- NUNCA criar recursos IAM. Usar LabRole e LabInstanceProfile.
+- Terraform modularizado com tags em todos os recursos.
+- Sem senhas no código: usar variáveis de ambiente.
+- Respostas curtas, gerar só o que for pedido.
