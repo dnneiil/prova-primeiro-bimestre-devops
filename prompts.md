@@ -22,4 +22,10 @@ Crie docker-compose.yml na raiz com dois serviços: api (build ./app, porta 3000
 
 Em infra/modules/vpc, crie um módulo Terraform com VPC (10.0.0.0/16), 2 sub-redes públicas e 2 privadas em 2 AZs de us-east-1, internet gateway e route table pública. Crie variables.tf, main.tf e outputs.tf (ids da vpc e das sub-redes). Tags em todos os recursos.
 
-**Resultado:** O Kiro criou o módulo da VPC com os três arquivos (main.tf, variables.tf e outputs.tf). Ainda vou validar com terraform validate antes de usar.
+**Resultado:** O Kiro criou o módulo da VPC com os três arquivos (main.tf, variables.tf e outputs.tf), gastando 0,79 crédito. Ainda vou validar com terraform validate antes de usar.
+
+## Prompt 5: Módulo Security Group
+
+Em infra/modules/security-group, crie um módulo Terraform com dois security groups: um para a EC2 (entrada nas portas 22 e 3000 de 0.0.0.0/0, saída liberada) e um para o RDS (entrada na porta 5432 apenas a partir do security group da EC2, sem CIDR aberto). Receba vpc_id por variável. Crie main.tf, variables.tf e outputs.tf (ids dos dois security groups). Tags em todos os recursos.
+
+**Resultado:** (preencho depois)
