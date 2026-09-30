@@ -28,4 +28,10 @@ Em infra/modules/vpc, crie um módulo Terraform com VPC (10.0.0.0/16), 2 sub-red
 
 Em infra/modules/security-group, crie um módulo Terraform com dois security groups: um para a EC2 (entrada nas portas 22 e 3000 de 0.0.0.0/0, saída liberada) e um para o RDS (entrada na porta 5432 apenas a partir do security group da EC2, sem CIDR aberto). Receba vpc_id por variável. Crie main.tf, variables.tf e outputs.tf (ids dos dois security groups). Tags em todos os recursos.
 
+**Resultado:** O Kiro criou o módulo com os dois security groups (EC2 e RDS), gastando 0,49 crédito. O RDS só aceita a porta 5432 vindo do security group da EC2. Ainda vou revisar antes do apply.
+
+## Prompt 6: Módulo EC2
+
+Em infra/modules/ec2, crie um módulo Terraform com uma aws_instance t2.micro (AMI Amazon Linux 2023 buscada por data source aws_ami) na sub-rede pública, com vpc_security_group_ids recebido por variável, iam_instance_profile = "LabInstanceProfile" e associate_public_ip_address = true. O user_data deve instalar Docker, baixar o código da API do repositório https://github.com/dnneiil/prova-primeiro-bimestre-devops, construir a imagem da pasta app e rodar o contêiner na porta 3000 com as variáveis DB_HOST, DB_USER, DB_PASSWORD, DB_NAME e DB_PORT recebidas por variável. Não crie nenhum recurso IAM. Crie main.tf, variables.tf e outputs.tf (id, IP público). Tags em todos os recursos.
+
 **Resultado:** (preencho depois)
