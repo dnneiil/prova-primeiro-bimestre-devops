@@ -72,6 +72,7 @@ resource "aws_instance" "this" {
       -e DB_PASSWORD="${var.db_password}" \
       -e DB_NAME="${var.db_name}" \
       -e DB_PORT="${var.db_port}" \
+      -e DB_SSL="true" \
       api-app
   EOF
 

@@ -6,6 +6,7 @@ const pool = new Pool({
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'reservas',
   port: parseInt(process.env.DB_PORT || '5432', 10),
+  ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
 });
 
 async function initDb() {
