@@ -3,4 +3,7 @@ node_modules/
 .terraform/
 *.tfstate
 *.tfstate.*
-*.pem
+*.pem*.pem
+*.tfvars
+crash.log
+.terraform.tfstate.lock.info
