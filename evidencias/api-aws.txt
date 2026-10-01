@@ -1,0 +1,27 @@
+# Teste da API na AWS
+## health
+{"status":"ok"}
+## POST /reservas
+{"id":2,"cliente":"Daniel","data":"2026-10-10T00:00:00.000Z","status":"confirmada","criado_em":"2026-10-01T22:21:39.823Z"}
+## GET /reservas
+[{"id":1,"cliente":"Daniel","data":"2026-10-10T00:00:00.000Z","status":"confirmada","criado_em":"2026-10-01T22:21:16.155Z"},{"id":2,"cliente":"Daniel","data":"2026-10-10T00:00:00.000Z","status":"confirmada","criado_em":"2026-10-01T22:21:39.823Z"}]
+## GET /reservas/1
+{"id":1,"cliente":"Daniel","data":"2026-10-10T00:00:00.000Z","status":"confirmada","criado_em":"2026-10-01T22:21:16.155Z"}
+## PUT /reservas/1
+{"id":1,"cliente":"Daniel","data":"2026-10-11T00:00:00.000Z","status":"cancelada","criado_em":"2026-10-01T22:21:16.155Z"}
+## DELETE /reservas/2
+{"mensagem":"Reserva com id 2 removida com sucesso."}
+HTTP 200
+## GET /reservas/2 (deve dar 404)
+{"erro":"Reserva com id 2 não encontrada."}
+HTTP 404
+## GET /reservas/1
+{"id":1,"cliente":"Daniel","data":"2026-10-11T00:00:00.000Z","status":"cancelada","criado_em":"2026-10-01T22:21:16.155Z"}
+## PUT /reservas/1
+{"id":1,"cliente":"Daniel","data":"2026-10-11T00:00:00.000Z","status":"cancelada","criado_em":"2026-10-01T22:21:16.155Z"}
+## DELETE /reservas/2
+{"erro":"Reserva com id 2 não encontrada."}
+HTTP 404
+## GET /reservas/2 (deve dar 404)
+{"erro":"Reserva com id 2 não encontrada."}
+HTTP 404
