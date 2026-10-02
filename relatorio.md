@@ -114,3 +114,8 @@
 
 # A evolução Git → Docker → Compose → Terraform me ensinou a testar em pequenos passos, a versionar cada mudança e a só avançar quando a etapa anterior funciona. Por isso, a IA funcionou como uma excelente assistente de produtividade, mas a validação e a responsabilidade final do projeto continuam sendo minhas.
 
+## Observação final sobre o terraform destroy
+
+Ao final, quando rodei o terraform destroy, ele falhou: o bucket S3 do state remoto (tfstate-reservas-6325213) não existia mais, então o Terraform não encontrou o state e não conseguiu destruir os recursos. Não sei dizer por que o bucket sumiu. Antes disso ele existia e o apply e os testes funcionaram normalmente. Também as credenciais do Learner Lab expiraram e precisei renová-las antes de ver o que ainda existia.
+
+Para não gastar os créditos do Lab, apaguei tudo pela AWS CLI, na ordem certa: EC2, RDS, security groups, subnets, tabela de rotas, internet gateway, VPC e a tabela DynamoDB. Depois conferi que EC2, RDS e VPC não apareciam mais. Aprendi que o remote state é uma peça importante: sem ele, o Terraform não consegue destruir o que criou, e a limpeza manual dá mais trabalho e é mais arriscada.
